@@ -1,7 +1,6 @@
 import axios from "axios"
 import { useState } from "react"
 
-// const AddTutorial = ({tutorials, setTutorials}) => {
   const AddTutorial = (getTutorials) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
@@ -13,8 +12,6 @@ import { useState } from "react"
       postTutorial(newTutor);
       setTitle("");
       setDescription("");
-      // setTutorials([...tutorials, newTutor])
-      //bu yöntemle id sıkıntı olur.
     };
 
     const postTutorial = async (newTutor) => {
