@@ -2,7 +2,7 @@ import axios from "axios"
 import { useState } from "react"
 
 // const AddTutorial = ({tutorials, setTutorials}) => {
-  const AddTutorial = () => {
+  const AddTutorial = (getTutorial) => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
 
@@ -26,6 +26,7 @@ import { useState } from "react"
       } catch (error) {
         console.log(error);
       }
+      getTutorial()
     };
 
     return (
