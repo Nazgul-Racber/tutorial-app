@@ -1,7 +1,8 @@
-import { FaEdit } from "react-icons/fa"
-import { AiFillDelete } from "react-icons/ai"
+import { FaEdit } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
+import axios from "axios";
 
-const TutorialList = ({tutorials}) => {
+const TutorialList = ({ tutorials, getTutorials }) => {
   // const tutorials = [
   //   {
   //     id: 1,
@@ -19,7 +20,16 @@ const TutorialList = ({tutorials}) => {
   //     description: "JS library for UI design",
   //   },
   // ]
+  const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials";
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`${BASE_URL}/${id}/`);
+    } catch (error) {
+      console.log(error);
+    }
+    getTutorials()
+  };
   return (
     <div className="container mt-4">
       <table className="table table-striped">
@@ -35,7 +45,7 @@ const TutorialList = ({tutorials}) => {
         </thead>
         <tbody>
           {tutorials?.map((item) => {
-            const { id, title, description } = item
+            const { id, title, description } = item;
             return (
               <tr key={id}>
                 <th>{id}</th>
@@ -51,15 +61,16 @@ const TutorialList = ({tutorials}) => {
                     size={22}
                     type="button"
                     className="text-danger "
+                    onClick={() => handleDelete(id)}
                   />
                 </td>
               </tr>
-            )
+            );
           })}
         </tbody>
       </table>
     </div>
-  )
-}
+  );
+};
 
-export default TutorialList
+export default TutorialList;
