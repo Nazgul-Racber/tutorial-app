@@ -2,20 +2,12 @@ import React from 'react'
 
 const Modal = () => {
   return (
-    <div>
-      {/* Button trigger modal */}
-      <button
-        type="button"
-        className="btn btn-primary"
-        data-bs-toggle="modal"
-        data-bs-target="#exampleModal"
-      >
-        Launch demo modal
-      </button>
+      <div>
+          
       {/* Modal */}
       <div
         className="modal fade"
-        id="exampleModal"
+        id="open-Modal"
         tabIndex={-1}
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"

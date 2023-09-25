@@ -3,7 +3,6 @@ import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
 import Modal from "./Modal";
 
-
 const TutorialList = ({ tutorials, getTutorials }) => {
   // const tutorials = [
   //   {
@@ -30,7 +29,7 @@ const TutorialList = ({ tutorials, getTutorials }) => {
     } catch (error) {
       console.log(error);
     }
-    getTutorials()
+    getTutorials();
   };
   return (
     <div className="container mt-4">
@@ -58,6 +57,8 @@ const TutorialList = ({ tutorials, getTutorials }) => {
                     size={20}
                     type="button"
                     className="me-2 text-warning"
+                    data-bs-toggle="modal"
+                    data-bs-target="#open-Modal"
                   />
                   <AiFillDelete
                     size={22}
@@ -71,7 +72,7 @@ const TutorialList = ({ tutorials, getTutorials }) => {
           })}
         </tbody>
       </table>
-      <Modal/>
+      <Modal />
     </div>
   );
 };
