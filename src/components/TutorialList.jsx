@@ -31,6 +31,14 @@ const TutorialList = ({ tutorials, getTutorials }) => {
     }
     getTutorials();
   };
+  const editTutor = async (tutor) => {
+    try {
+      await axios.put(`${BASE_URL}/${tutor.id}/`, tutor);
+    } catch (error) {
+      console.log(error)
+    }
+    getTutorials()
+  }
   return (
     <div className="container mt-4">
       <table className="table table-striped">
@@ -59,6 +67,14 @@ const TutorialList = ({ tutorials, getTutorials }) => {
                     className="me-2 text-warning"
                     data-bs-toggle="modal"
                     data-bs-target="#open-Modal"
+                    // onClick={() =>
+                    //   editTutor({
+                    //     id: 1852,
+                    //     title: "VUE",
+                    //     description: "JS Library",
+                    //   })
+                    // }
+                    onClick={() => setEditItem()}
                   />
                   <AiFillDelete
                     size={22}
