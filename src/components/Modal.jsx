@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 // EditTutorial.jsx
-const Modal = () => {
-  const [title, setTitle] = useState("");
-  const [description, setDescription] = useState("");
+const Modal = ({ editItem }) => {
+  const { id, description: newDescription, title: newTitle } = editItem;
+
+  const [title, setTitle] = useState(newTitle);
+  const [description, setDescription] = useState(newDescription);
+
   return (
     <div
       className="modal fade"

@@ -2,8 +2,13 @@ import { FaEdit } from "react-icons/fa";
 import { AiFillDelete } from "react-icons/ai";
 import axios from "axios";
 import Modal from "./Modal";
+import { useState } from "react";
 
 const TutorialList = ({ tutorials, getTutorials }) => {
+  const [editItem, setEditItem] = useState("")
+
+  console.log(editItem)
+
   // const tutorials = [
   //   {
   //     id: 1,
@@ -74,7 +79,7 @@ const TutorialList = ({ tutorials, getTutorials }) => {
                     //     description: "JS Library",
                     //   })
                     // }
-                    onClick={() => setEditItem()}
+                    onClick={() => setEditItem(item)}
                   />
                   <AiFillDelete
                     size={22}
@@ -88,7 +93,7 @@ const TutorialList = ({ tutorials, getTutorials }) => {
           })}
         </tbody>
       </table>
-      <Modal />
+      <Modal editItem={editItem} />
     </div>
   );
 };
