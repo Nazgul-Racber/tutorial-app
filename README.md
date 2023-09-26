@@ -1,4 +1,4 @@
-## Add-tutorial-app
+## tutorial-app
 ## gif
-![Add-tutorial](./Add-tutorial.gif)
+![tutorial-app](./Add-tutorial.gif)
 
