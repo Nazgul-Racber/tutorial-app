@@ -69,7 +69,7 @@ const TutorialList = ({ tutorials, getTutorials }) => {
                   <FaEdit
                     size={20}
                     type="button"
-                    className="me-2 text-warning"
+                    className="me-2 text-primary"
                     data-bs-toggle="modal"
                     data-bs-target="#open-Modal"
                     // onClick={() =>
