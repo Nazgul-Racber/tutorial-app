@@ -25,7 +25,7 @@ const Modal = ({ editItem, getTutorials }) => {
     } catch (error) {
       console.log(error);
     }
-    // getTutorials()
+    getTutorials()
   };
 
   const handleSubmit = (e) => {
