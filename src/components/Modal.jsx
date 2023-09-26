@@ -88,7 +88,11 @@ const Modal = ({ editItem, getTutorials }) => {
                 />
               </div>
               <div className="text-end">
-                <button type="submit" className="btn btn-danger">
+                <button
+                  type="submit"
+                  className="btn btn-danger"
+                  data-bs-dismiss="modal"
+                >
                   Submit
                 </button>
               </div>
