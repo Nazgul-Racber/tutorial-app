@@ -1,17 +1,37 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 // EditTutorial.jsx
-const Modal = ({ editItem }) => {
-  console.log(editItem)
+const Modal = ({ editItem, getTutorials }) => {
+  console.log(editItem);
 
   const { id, description: oldDescription, title: oldTitle } = editItem;
-  console.log("old", oldTitle)
-  console.log("old",oldDescription)
+  console.log("old", oldTitle);
+  console.log("old", oldDescription);
   const [title, setTitle] = useState(oldTitle);
   const [description, setDescription] = useState(oldDescription);
-    console.log(title);
-    console.log(oldDescription);
-  
-  
+
+  useEffect(() => {
+    setTitle(oldTitle);
+    setDescription(oldDescription);
+  }, [oldTitle, oldDescription]);
+
+  console.log(title);
+  console.log(oldDescription);
+
+  const editTutor = async (tutor) => {
+    const BASE_URL = "https://tutorial-api.fullstack.clarusway.com/tutorials";
+    try {
+      await axios.put(`${BASE_URL}/${id}/`, tutor);
+    } catch (error) {
+      console.log(error);
+    }
+    // getTutorials()
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    editTutor({ title, description });
+  };
   return (
     <div
       className="modal fade"
@@ -38,7 +58,7 @@ const Modal = ({ editItem }) => {
             />
           </div>
           <div className="modal-body">
-            <form>
+            <form onSubmit={handleSubmit}>
               <div className="mb-3">
                 <label htmlFor="title" className="form-label">
                   Title
